@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataManagerService } from '../data-manager.service';
 
 @Component({
   selector: 'app-new-list',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataManagerService) { }
 
+  addList(ev) {
+    if (ev.target.value.trim() !== '') {
+      this.dataService.addNewList(ev.target.value);
+    ev.target.value = '';
+    }
+  }
   ngOnInit() {
   }
 
