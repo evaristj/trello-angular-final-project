@@ -3,5 +3,8 @@
   <div class="tasks">
     <app-task *ngFor="let taskObj of list.tasks" [task]="taskObj"></app-task>
   </div>
+  <div href="#" (click)="delete(list.listId)">
+    Borrar
+  </div>
   <input type="text" placeholder="add task">
 </div>
