@@ -1,7 +1,7 @@
 <div class="list">
   <h1>{{ list.name }}</h1>
   <div class="tasks">
-    <app-task *ngFor="let taskObj of list.task" [task]="taskObj"></app-task>
+    <app-task *ngFor="let taskObj of list.tasks" [task]="taskObj"></app-task>
   </div>
   <input type="text" placeholder="add task">
 </div>

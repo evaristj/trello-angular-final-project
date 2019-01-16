@@ -1,0 +1,6 @@
+.showLists {
+    background: rgb(219, 219, 219);
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
