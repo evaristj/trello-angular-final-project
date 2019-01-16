@@ -23,6 +23,15 @@ export class DataManagerService {
             color: 'red',
             createdAt: new Date(),
             modifiedAt: new Date()
+          },
+          {
+            listId: 1,
+            listTask: 2,
+            text: 'aprender angular 2',
+            completed: false,
+            color: 'red',
+            createdAt: new Date(),
+            modifiedAt: new Date()
           }
         ]
       },

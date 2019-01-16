@@ -1,0 +1,12 @@
+.list {
+    padding: 0.5em;
+    background-color: blanchedalmond;
+    border-radius: 0.5em;
+    margin: 1em;
+}
+.list   input {
+    all: unset;
+    color: grey;
+    border-bottom: 1px solid white;
+    width: 100%;
+}
