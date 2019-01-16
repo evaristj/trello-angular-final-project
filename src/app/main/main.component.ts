@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataManagerService } from '../data-manager.service';
+import { List } from '../models.interface';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  constructor() { }
+  data: {lists: Array<List> };
+  constructor(private dataManager: DataManagerService) { }
 
   ngOnInit() {
+    this.data = this.dataManager.getData();
   }
 
 }
