@@ -1,10 +1,22 @@
 <div class="list">
-  <h1>{{ list.name }}</h1>
+  <h1>
+    <span [hidden]="editing" (dblclick)="editName(editInput)">{{ list.name }}</span>
+    <span [hidden]="!editing">
+      <input #editInput type="text" 
+      (keyup.enter)="editListName($event)" 
+      (blur)="cancelEditName()" 
+      [(ngModel)]="list.name">
+    </span>
+  </h1>
   <div class="tasks">
     <app-task *ngFor="let taskObj of list.tasks" [task]="taskObj"></app-task>
   </div>
-  <div class="deleteList" href="#" (click)="delete(list.listId)">
+  <span class="deleteList" href="#" (click)="deleteList(list.listId)">
     <img src="assets/images/borrar.png" alt="">
-  </div>
+  </span>
+  <span class="editList" href="#" (click)="editName(editInput)">
+    <img src="assets/images/editar.png" alt="">
+  </span>
+
   <input type="text" placeholder="add task" (keyup.enter)="newTask($event)">
 </div>

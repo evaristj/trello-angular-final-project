@@ -89,6 +89,8 @@ export class DataManagerService {
     ]
   };
 
+  constructor() { }
+
   getData() {
     return this.data;
   }
@@ -112,7 +114,7 @@ export class DataManagerService {
     const now = new Date();
     const newTask: Task = {
       listTaskId: list.listId,
-      taskId:  Date.now(),
+      taskId: Date.now(),
       text,
       completed: false,
       color: 'white',
@@ -133,17 +135,9 @@ export class DataManagerService {
       }
       return list;
     });
-    // console.log(this.data2[0]);
   }
-/*   deleteTask(taskId: number, listId: number) {
-    this.data.lists = this.data.lists.map(listObj => {
-      if (list.listId === listId) {
-        list.tasks = list.tasks.filter(task => { task.taskId !== taskId });
 
-      }
-      return list;
-    });
-
-  } */
-  constructor() { }
+  editListNameService(list: List) {
+    this.data.lists = this.data.lists.map(listObj => (listObj.listId === list.listId) ? list : listObj);
+  }
 }

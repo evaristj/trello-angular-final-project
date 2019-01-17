@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { List } from '../models.interface';
 import { DataManagerService } from '../data-manager.service';
 
@@ -9,9 +9,12 @@ import { DataManagerService } from '../data-manager.service';
 })
 export class ListComponent {
   @Input() list: List;
+  editing = false;
+  oldName: string;
+
   constructor(private dataService: DataManagerService) { }
 
-  delete(id) {
+  deleteList(id) {
     if (confirm('¿Quieres borrar la lista?' + this.list.name)) {
       this.dataService.deleteList(id);
     }
@@ -25,7 +28,22 @@ export class ListComponent {
       this.dataService.addNewTask(text, this.list);
       ev.target.value = '';
     }
-
   }
-
+  editListName() {
+    // al ejecutar intro aunque pierda el foco con blur, se acutaliza con el nombre pulsado
+    this.oldName = this.list.name;
+    this.editing = false;
+    this.dataService.editListNameService(this.list);
+  }
+  editName(nodo) {
+    setTimeout(() => {
+      nodo.focus();
+    }, 0);
+    this.oldName = this.list.name;
+    this.editing = true;
+  }
+  cancelEditName() {
+    this.list.name = this.oldName;
+    this.editing = false;
+  }
 }

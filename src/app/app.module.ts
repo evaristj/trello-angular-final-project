@@ -9,6 +9,7 @@ import { ShowListComponent } from './show-list/show-list.component';
 import { ListComponent } from './list/list.component';
 import { TaskComponent } from './task/task.component';
 import { DataManagerService } from './data-manager.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DataManagerService } from './data-manager.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     DataManagerService

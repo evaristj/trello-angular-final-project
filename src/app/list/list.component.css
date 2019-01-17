@@ -10,14 +10,19 @@
     border-bottom: 1px solid white;
     width: 100%;
 }
-.deleteList {
+/* .deleteList {
     background: tomato;
     text-align: center;
     border-radius: 0.5em;
     width: 2.8em;
     padding: 0.2em;
     margin: 0.5em;
+} */
+img {
+    opacity: 0.4;
+    transition: opacity 500ms;
 }
-.deleteList:hover {
-    background-color: rgb(252, 50, 14);
+img:hover {
+    background-color: rgb(223, 248, 110);
+    opacity: 1.5;
 }
