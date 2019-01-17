@@ -8,8 +8,8 @@ export interface List {
 }
 
 export interface Task {
-    listId: number;
-    listTask: number;
+    listTaskId: number;
+    taskId: number;
     text: string;
     completed: false;
     color: string;

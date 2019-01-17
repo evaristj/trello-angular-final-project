@@ -17,5 +17,15 @@ export class ListComponent {
     }
 
   }
+  newTask(ev) {
+    // crear if para que no añada listas vacias y despues vaciar el input
+    const text = ev.target.value.trim();
+
+    if (text !== '') {
+      this.dataService.addNewTask(text, this.list);
+      ev.target.value = '';
+    }
+
+  }
 
 }

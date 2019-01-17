@@ -4,3 +4,12 @@
     padding: 0.3em;
     margin: 0.3em;
 }
+img {
+    opacity: 0;
+    transition: opacity 500ms;
+    width: 1.4em;
+    height: 1.4em;
+}
+img:hover {
+    opacity: 1;
+}
