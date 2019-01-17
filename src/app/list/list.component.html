@@ -3,7 +3,7 @@
     <span [hidden]="editing" (dblclick)="editName(editInput)">{{ list.name }}</span>
     <span [hidden]="!editing">
       <input #editInput type="text" 
-      (keyup.enter)="editListName($event)" 
+      (keyup.enter)="editListName()" 
       (blur)="cancelEditName()" 
       [(ngModel)]="list.name">
     </span>
