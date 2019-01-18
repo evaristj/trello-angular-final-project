@@ -11,6 +11,7 @@ export interface Task {
     listTaskId: number;
     taskId: number;
     text: string;
+    description: string;
     completed: false;
     color: string;
     createdAt: Date;

@@ -26,3 +26,9 @@ img:hover {
     background-color: rgb(223, 248, 110);
     opacity: 1.5;
 }
+.addTask {
+    margin: 10px;
+}
+.addTask:hover {
+    border: 1px solid black;
+}

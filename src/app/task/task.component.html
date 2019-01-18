@@ -1,4 +1,15 @@
 <div class="task">
-  <h2>{{ task.text }}</h2>
-  <img src="assets/images/borrar.png" alt="" (click)="deleteTask()">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.text }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ task.taskId }}</h6>
+
+      <span *ngIf="!editing" (dblclick)="editDescrition()">{{ task.description }}</span>
+      <textarea *ngIf="editing" autofocus cols="30" rows="5" (keyup.enter)="editTaskDescription($event)" (blur)="cancelEditDescription()" [(ngModel)]="newDescription"></textarea>
+
+      <div class="icons">
+        <img src="assets/images/borrar.png" alt="Borrar tarea" (click)="deleteTask()">
+      </div>
+    </div>
+  </div>
 </div>

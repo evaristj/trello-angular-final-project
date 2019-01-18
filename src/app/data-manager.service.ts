@@ -19,6 +19,7 @@ export class DataManagerService {
             taskId: 0,
             listTaskId: 1,
             text: 'aprender angular',
+            description: 'estoy aprendiendo karate a nivel dios.',
             completed: false,
             color: 'red',
             createdAt: new Date(),
@@ -28,23 +29,8 @@ export class DataManagerService {
             taskId: 1,
             listTaskId: 1,
             text: 'aprender angular 2',
-            completed: false,
-            color: 'red',
-            createdAt: new Date(),
-            modifiedAt: new Date()
-          }
-        ]
-      },
-      {
-        listId: 2,
-        createdAt: new Date(),
-        modifiedAt: new Date(),
-        name: 'DOING',
-        tasks: [
-          {
-            taskId: 0,
-            listTaskId: 2,
-            text: 'angular trabajando',
+            // tslint:disable-next-line:max-line-length
+            description: 'estoy aprendiendo karate a nivel dios. Por la gloria de mi madrrrre, lorem ipsum cagate en todo estaij sskkjs dllkkgds',
             completed: false,
             color: 'red',
             createdAt: new Date(),
@@ -62,6 +48,7 @@ export class DataManagerService {
             taskId: 0,
             listTaskId: 3,
             text: 'angular esperando',
+            description: 'estoy esperando una modificación.',
             completed: false,
             color: 'red',
             createdAt: new Date(),
@@ -79,6 +66,7 @@ export class DataManagerService {
             taskId: 0,
             listTaskId: 4,
             text: 'angular hecho',
+            description: 'acabo de terminar la tarea.',
             completed: false,
             color: 'red',
             createdAt: new Date(),
@@ -116,6 +104,7 @@ export class DataManagerService {
       listTaskId: list.listId,
       taskId: Date.now(),
       text,
+      description: '',
       completed: false,
       color: 'white',
       createdAt: now,
@@ -139,5 +128,21 @@ export class DataManagerService {
 
   editListNameService(list: List) {
     this.data.lists = this.data.lists.map(listObj => (listObj.listId === list.listId) ? list : listObj);
+  }
+
+  // este método recibe el objeto task por parámetro y lo devuelve, por lo que se puede reutilizar
+  // para actualizar el objeto Task
+  editTaskDescription(objTask: Task) {
+    this.data.lists = this.data.lists.map(list => {
+      if (list.listId === objTask.listTaskId) {
+        list.tasks = list.tasks.map(task => {
+          if (task.taskId === objTask.taskId) {
+            return objTask;
+          }
+          return task;
+        });
+        return list;
+      }
+    });
   }
 }
