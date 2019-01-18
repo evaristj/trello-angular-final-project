@@ -104,7 +104,7 @@ export class DataManagerService {
       listTaskId: list.listId,
       taskId: Date.now(),
       text,
-      description: '',
+      description: 'Añade una descripción...',
       completed: false,
       color: 'white',
       createdAt: now,
@@ -132,7 +132,7 @@ export class DataManagerService {
 
   // este método recibe el objeto task por parámetro y lo devuelve, por lo que se puede reutilizar
   // para actualizar el objeto Task
-  editTaskDescription(objTask: Task) {
+  updateTask(objTask: Task) {
     this.data.lists = this.data.lists.map(list => {
       if (list.listId === objTask.listTaskId) {
         list.tasks = list.tasks.map(task => {

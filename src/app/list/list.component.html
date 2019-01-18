@@ -2,7 +2,10 @@
   <h1>
     <span [hidden]="editing" (dblclick)="editName(editInput)">{{ list.name }}</span>
     <span [hidden]="!editing">
-      <input #editInput type="text" (keyup.enter)="editListName($event)" (blur)="cancelEditName()" [(ngModel)]="list.name">
+      <input name="listName" #editInput type="text" 
+      (keyup.enter)="editListName()" 
+      (blur)="cancelEditName()" 
+      [(ngModel)]="newName">
     </span>
     <p>{{ list.listId }}</p>
   </h1>

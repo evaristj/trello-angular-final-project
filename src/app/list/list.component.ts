@@ -10,7 +10,7 @@ import { DataManagerService } from '../data-manager.service';
 export class ListComponent {
   @Input() list: List;
   editing = false;
-  oldName: string;
+  newName = '';
 
   constructor(private dataService: DataManagerService) { }
 
@@ -18,7 +18,6 @@ export class ListComponent {
     if (confirm('¿Quieres borrar la lista?' + this.list.name)) {
       this.dataService.deleteList(id);
     }
-
   }
   newTask(ev) {
     // crear if para que no añada listas vacias y despues vaciar el input
@@ -31,19 +30,17 @@ export class ListComponent {
   }
   editListName() {
     // al ejecutar intro aunque pierda el foco con blur, se acutaliza con el nombre pulsado
-    this.oldName = this.list.name;
-    this.editing = false;
+    this.list.name = this.newName;
     this.dataService.editListNameService(this.list);
+    this.editing = false;
   }
   editName(nodo) {
     setTimeout(() => {
       nodo.focus();
     }, 0);
-    this.oldName = this.list.name;
     this.editing = true;
   }
   cancelEditName() {
-    this.list.name = this.oldName;
     this.editing = false;
   }
 }

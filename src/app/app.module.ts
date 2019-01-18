@@ -10,6 +10,11 @@ import { ListComponent } from './list/list.component';
 import { TaskComponent } from './task/task.component';
 import { DataManagerService } from './data-manager.service';
 import { FormsModule } from '@angular/forms';
+import { RegisterViewComponent } from './register-view/register-view.component';
+import { LoginViewComponent } from './login-view/login-view.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ApiService } from './api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,15 +23,18 @@ import { FormsModule } from '@angular/forms';
     NewListComponent,
     ShowListComponent,
     ListComponent,
-    TaskComponent
+    TaskComponent,
+    RegisterViewComponent,
+    LoginViewComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, HttpClientModule
   ],
   providers: [
-    DataManagerService
+    DataManagerService, ApiService
   ],
   bootstrap: [AppComponent]
 })
