@@ -1,0 +1,16 @@
+form {
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+    background: rgb(223, 202, 202);
+    padding: 1em;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.send {
+    margin: 3px;
+    background-color: rgb(70, 255, 70);
+}
+.send:hover {
+    background-color: rgb(19, 194, 19);
+}

@@ -1,0 +1,9 @@
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    background: grey;
+}
+a {
+    margin: 1em;
+}
