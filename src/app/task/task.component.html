@@ -2,7 +2,7 @@
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 *ngIf="!editNameBool" class="card-title" (dblclick)="editName()">{{ task.text }}</h5>
-      <input  #editInput type="text" *ngIf="editNameBool" 
+      <input type="text" *ngIf="editNameBool" 
       [(ngModel)]="newName"
       (keyup.enter)="editTaskName($event)"
       (blur)="cancelNameTask()">
@@ -17,9 +17,6 @@
       <hr>
       <div class="icons">
         <img src="assets/images/borrar.png" alt="Borrar tarea" (click)="deleteTask()">
-        <span class="editList" href="#" (click)="editName(editInput)">
-          <img src="assets/images/editar.png" alt="">
-        </span>
       </div>
     </div>
   </div>

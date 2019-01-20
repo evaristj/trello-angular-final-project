@@ -7,12 +7,12 @@ import { ApiService } from '../api.service';
   styleUrls: ['./register-view.component.css']
 })
 export class RegisterViewComponent {
-  username: string;
+  userName: string;
   password: string;
   constructor(private api: ApiService) { }
 
   register() {
-    this.api.register(this.username, this.password);
+    this.api.register(this.userName, this.password);
   }
 
 }
