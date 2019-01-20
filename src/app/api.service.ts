@@ -10,11 +10,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   register(user, pass) {
-    this.http.post('https://apitrello.herokuapp.com/users', { user, pass })
-      .toPromise()
-      .then(response => {
-        console.log(response);
-      }).catch(console.error);
+    return this.http.post('https://apitrello.herokuapp.com/users', { user, pass }).toPromise();
   }
 
   login(user, pass) {
@@ -26,6 +22,7 @@ export class ApiService {
           reject('User not found');
         }).catch(maybeNotAndError => {
           if (maybeNotAndError.status === 200) {
+            console.log('status.error.200');
             const jwt = maybeNotAndError.error.text;
             this.jwt = jwt;
             localStorage.setItem('jwt', jwt);

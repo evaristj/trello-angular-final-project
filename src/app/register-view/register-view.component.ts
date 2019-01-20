@@ -7,12 +7,24 @@ import { ApiService } from '../api.service';
   styleUrls: ['./register-view.component.css']
 })
 export class RegisterViewComponent {
-  userName: string;
+  username: string;
   password: string;
+  error: any;
+  valid: any;
   constructor(private api: ApiService) { }
 
   register() {
-    this.api.register(this.userName, this.password);
+    const { username, password } = this;
+    if (username.trim() !== '' && password.trim() !== '') {
+      this.api
+        .register(username.trim(), password.trim())
+        .then(res => {
+          this.valid = res;
+        })
+        .catch(error => {
+          this.error = error;
+        });
+    }
   }
 
 }

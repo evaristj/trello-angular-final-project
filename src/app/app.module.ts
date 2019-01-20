@@ -31,10 +31,12 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, HttpClientModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
-    DataManagerService, ApiService
+    DataManagerService,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })
