@@ -82,13 +82,13 @@ export class DataManagerService {
   getData() {
     return this.data;
   }
-  addNewList(name: string) {
+  addNewList(nameMod: string) {
     const id = new Date();
     const newList: List = {
       listId: Date.now(),
       createdAt: id,
       modifiedAt: id,
-      name,
+      name: nameMod,
       tasks: []
     };
     this.data.lists.push(newList);
@@ -110,12 +110,14 @@ export class DataManagerService {
       createdAt: now,
       modifiedAt: now,
     };
+    console.log('funcion añadir tarea init');
     this.data.lists = this.data.lists.map(listObj => {
       if (listObj.listId === list.listId) {
         listObj.tasks.push(newTask);
       }
       return listObj;
     });
+    console.log('funcion añadir tarea fin');
   }
   deleteTask(listId: number, taskId: number) {
     this.data.lists = this.data.lists.map(list => {
@@ -133,16 +135,21 @@ export class DataManagerService {
   // este método recibe el objeto task por parámetro y lo devuelve, por lo que se puede reutilizar
   // para actualizar el objeto Task
   updateTask(objTask: Task) {
+    console.log('funcion update tarea init');
     this.data.lists = this.data.lists.map(list => {
       if (list.listId === objTask.listTaskId) {
         list.tasks = list.tasks.map(task => {
           if (task.taskId === objTask.taskId) {
+            console.log('funcion update tarea return objTask');
             return objTask;
           }
+          console.log('funcion update tarea return task');
           return task;
         });
-        return list;
       }
+      console.log('funcion update tarea return list');
+      return list;
     });
+    console.log('funcion update tarea fin');
   }
 }
