@@ -140,16 +140,12 @@ export class DataManagerService {
       if (list.listId === objTask.listTaskId) {
         list.tasks = list.tasks.map(task => {
           if (task.taskId === objTask.taskId) {
-            console.log('funcion update tarea return objTask');
             return objTask;
           }
-          console.log('funcion update tarea return task');
           return task;
         });
       }
-      console.log('funcion update tarea return list');
       return list;
     });
-    console.log('funcion update tarea fin');
   }
 }

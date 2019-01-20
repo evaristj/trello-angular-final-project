@@ -1,17 +1,25 @@
 <div class="task">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">{{ task.text }}</h5>
+      <h5 *ngIf="!editNameBool" class="card-title" (dblclick)="editName()">{{ task.text }}</h5>
+      <input  #editInput type="text" *ngIf="editNameBool" 
+      [(ngModel)]="newName"
+      (keyup.enter)="editTaskName($event)"
+      (blur)="cancelNameTask()">
+
       <h6 class="card-subtitle mb-2 text-muted">{{ task.taskId }}</h6>
 
-      <span *ngIf="!editing" (dblclick)="editDescription()">{{ task.description }}</span>
-      <textarea autofocus type="textarea" *ngIf="editing" cols="30" rows="5"
+      <span *ngIf="!editDesBool" (dblclick)="editDescription()">{{ task.description }}</span>
+      <textarea autofocus type="textarea" *ngIf="editDesBool" cols="30" rows="5"
         [(ngModel)]="newDescription"
         (keyup.enter)="editTaskDescription($event)" 
         (blur)="cancelEditDescription()"></textarea>
-
+      <hr>
       <div class="icons">
         <img src="assets/images/borrar.png" alt="Borrar tarea" (click)="deleteTask()">
+        <span class="editList" href="#" (click)="editName(editInput)">
+          <img src="assets/images/editar.png" alt="">
+        </span>
       </div>
     </div>
   </div>

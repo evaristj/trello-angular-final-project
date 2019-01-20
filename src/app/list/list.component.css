@@ -1,6 +1,6 @@
 .list {
     padding: 0.5em;
-    background-color: blanchedalmond;
+    background-color: rgb(221, 167, 86);
     border-radius: 0.5em;
     margin: 1em;
 }
@@ -10,21 +10,15 @@
     border-bottom: 1px solid white;
     width: 100%;
 }
-/* .deleteList {
-    background: tomato;
-    text-align: center;
-    border-radius: 0.5em;
-    width: 2.8em;
-    padding: 0.2em;
-    margin: 0.5em;
-} */
 img {
     opacity: 0.4;
     transition: opacity 500ms;
+    max-width: 30px;
 }
 img:hover {
-    background-color: rgb(223, 248, 110);
+    background-color: rgb(255, 52, 52);
     opacity: 1.5;
+    border-radius: 0.4em;
 }
 .addTask {
     margin: 10px;

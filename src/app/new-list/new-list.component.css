@@ -1,6 +1,6 @@
 header {
     height: 100px;
-    background-image: linear-gradient(to left, red, blue);
+    background-image: linear-gradient(to left, rgb(78, 255, 78), rgb(15, 188, 211));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@ input {
     all: unset;
     background: transparent;
     color: white;
-    border: 2px solid black;
+    border: 1px solid black;
     
 }
 input::placeholder {

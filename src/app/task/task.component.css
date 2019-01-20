@@ -7,12 +7,13 @@
     padding: 0.3em;
     margin: 0.3em;
 }
-.icons {
-    opacity: 0.3;
+img {
+    opacity: 0.4;
     transition: opacity 500ms;
-    width: 1.4em;
-    height: 1.4em;
+    max-width: 30px;
 }
-.icons:hover {
-    opacity: 1;
+img:hover {
+    background-color: rgb(255, 52, 52);
+    opacity: 1.5;
+    border-radius: 0.4em;
 }

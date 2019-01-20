@@ -10,23 +10,36 @@ import { DataManagerService } from '../data-manager.service';
 export class TaskComponent {
   @Input() task: Task;
   newDescription = '';
-  editing = false;
+  newName = '';
+  editDesBool = false;
+  editNameBool = false;
   constructor(private dataService: DataManagerService) { }
 
   editTaskDescription() {
     this.task.description = this.newDescription;
     this.dataService.updateTask(this.task);
-    this.editing = false;
+    this.editDesBool = false;
   }
   editDescription() {
-    this.editing = true;
+    this.editDesBool = true;
   }
   cancelEditDescription() {
-    this.editing = false;
+    this.editDesBool = false;
   }
 
   deleteTask() {
     this.dataService.deleteTask(this.task.listTaskId, this.task.taskId);
   }
 
+  editTaskName() {
+    this.task.text = this.newName;
+    this.dataService.updateTask(this.task);
+    this.editNameBool = false;
+  }
+  editName() {
+    this.editNameBool = true;
+  }
+  cancelNameTask() {
+    this.editNameBool = false;
+  }
 }
