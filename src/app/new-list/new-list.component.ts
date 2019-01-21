@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataManagerService } from '../data-manager.service';
+import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-list',
   templateUrl: './new-list.component.html',
   styleUrls: ['./new-list.component.css']
 })
-export class NewListComponent implements OnInit {
+export class NewListComponent {
 
-  constructor(private dataService: DataManagerService) { }
+  constructor(private dataService: DataManagerService,
+    private api: ApiService,
+    private router: Router) { }
 
   addList(ev) {
     if (ev.target.value.trim() !== '') {
@@ -16,7 +20,12 @@ export class NewListComponent implements OnInit {
     ev.target.value = '';
     }
   }
-  ngOnInit() {
+  logout() {
+    console.log('logout init');
+    this.api.logoutSession();
+    console.log('logout fin');
+    console.log(this.api.jwt);
+    this.router.navigate(['/login']);
   }
 
 }

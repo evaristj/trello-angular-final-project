@@ -18,5 +18,5 @@ input::placeholder {
 /*css de logout*/
 .logout {
     text-align: right;
-    margin-left: 2em;
+    background:  rgb(231, 231, 231);
 }

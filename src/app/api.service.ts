@@ -36,5 +36,9 @@ export class ApiService {
         });
     });
   }
-  logout() {}
+  logoutSession() {
+    console.log('logoutSession init');
+    localStorage.clear();
+    console.log('logoutSession fin');
+  }
 }
