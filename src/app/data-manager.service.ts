@@ -144,19 +144,27 @@ export class DataManagerService {
 
     // con la API
     this.api.newTask(text, list.listId).then(resolve => {
-      console.log(text, list.listId, 'inicio newTask data-manager');
+      console.log(resolve, 'inicio newTask data-manager');
       this.loadDataFromBackend();
       console.log('tarea añadida dataManager');
     });
   }
 
-  deleteTask(listId: number, taskId: number) {
+  // de forma local
+  /*   deleteTask(listId: number, taskId: number) {
     this.data.lists = this.data.lists.map(list => {
       if (list.listId === listId) {
         list.tasks = list.tasks.filter(task => task.taskId !== taskId);
       }
       return list;
     });
+  } */
+
+  // con la API
+  deleteTask(listId: number) {
+    this.api.deleteTask(listId).then(resolve => {
+      console.log(resolve, 'inicio delete dataManager');
+    }).catch(() => this.loadDataFromBackend());
   }
 
   editListNameService(list: List) {

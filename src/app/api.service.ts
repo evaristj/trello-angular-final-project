@@ -80,4 +80,8 @@ export class ApiService {
     console.log(task, idlist, 'fin newTask API');
     return this.http.post('https://apitrello.herokuapp.com/tasks', body, options).toPromise();
   }
+  deleteTask(listId: number): any {
+    const options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+    return this.http.delete('https://apitrello.herokuapp.com/list/tasks/' + listId, options).toPromise();
+  }
 }
