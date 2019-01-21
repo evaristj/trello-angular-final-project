@@ -7,7 +7,7 @@
       (keyup.enter)="editTaskName($event)"
       (blur)="cancelNameTask()">
 
-      <h6 class="card-subtitle mb-2 text-muted">{{ task.taskId }}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Id: {{ task.taskId }}</h6>
 
       <span *ngIf="!editDesBool" (dblclick)="editDescription()">{{ task.description }}</span>
       <textarea autofocus type="textarea" *ngIf="editDesBool" cols="30" rows="5"

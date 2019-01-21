@@ -14,6 +14,7 @@ export class RegisterViewComponent {
   constructor(private api: ApiService) { }
 
   register() {
+    console.log('inicio register component');
     const { username, password } = this;
     if (username.trim() !== '' && password.trim() !== '') {
       this.api
@@ -25,6 +26,7 @@ export class RegisterViewComponent {
           this.error = error;
         });
     }
+    console.log('fin register component');
   }
 
 }

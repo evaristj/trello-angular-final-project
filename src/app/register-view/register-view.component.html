@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <form (submit)="register()">
   <h2>Registrar usuario</h2>
-  <input type="text" placeholder="user" [(ngModel)]="userName" name="user">
+  <input type="text" placeholder="user" [(ngModel)]="username" name="user">
   <input type="password" placeholder="password" [(ngModel)]="password" name="pass">
   <input class="send" type="submit" value="Register">
   <div *ngIf="error">{{ error | json }}</div>

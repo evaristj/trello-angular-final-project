@@ -1,5 +1,5 @@
 <div class="list">
-  <h3>
+  <h3 class="title">
     <span [hidden]="editing" (dblclick)="editName(editInput)">{{ list.name }}</span>
     <span [hidden]="!editing">
       <input name="listName" #editInput type="text" 
@@ -7,8 +7,9 @@
       (blur)="cancelEditName()" 
       [(ngModel)]="newName">
     </span>
-    <p>{{ list.listId }}</p>
   </h3>
+  <h5 class="title">{{ list.listId }}</h5>
+  
   <div class="tasks">
     <app-task *ngFor="let taskObj of list.tasks" [task]="taskObj"></app-task>
   </div>

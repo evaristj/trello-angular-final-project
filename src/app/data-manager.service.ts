@@ -19,7 +19,7 @@ export class DataManagerService {
             taskId: 0,
             listTaskId: 1,
             text: 'aprender angular',
-            description: 'estoy aprendiendo karate a nivel dios.',
+            description: 'estoy aprendiendo karate.',
             completed: false,
             color: 'red',
             createdAt: new Date(),
@@ -30,7 +30,7 @@ export class DataManagerService {
             listTaskId: 1,
             text: 'aprender angular 2',
             // tslint:disable-next-line:max-line-length
-            description: 'estoy aprendiendo karate a nivel dios. Por la gloria de mi madrrrre, lorem ipsum cagate en todo estaij sskkjs dllkkgds',
+            description: 'estoy, lorem ipsum cagate en todo estaij sskkjs dllkkgds',
             completed: false,
             color: 'red',
             createdAt: new Date(),

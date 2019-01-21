@@ -1,8 +1,14 @@
 .list {
     padding: 0.5em;
-    background-color: rgb(221, 167, 86);
+    background-color: rgb(135, 226, 74);
     border-radius: 0.5em;
     margin: 1em;
+}
+.title {
+    text-align: center;
+}
+h5 {
+    opacity: 0.6;
 }
 .list input {
     all: unset;

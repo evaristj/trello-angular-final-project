@@ -1,5 +1,5 @@
 .showLists {
-    background: rgb(219, 219, 219);
+    background: rgb(231, 231, 231);
     display: flex;
     flex-flow: wrap row;
     justify-content: flex-start;
