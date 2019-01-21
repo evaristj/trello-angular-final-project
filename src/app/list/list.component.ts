@@ -16,7 +16,7 @@ export class ListComponent {
 
   deleteList(id) {
     if (confirm('¿Quieres borrar la lista?' + this.list.name)) {
-      this.dataService.deleteList(id);
+      this.dataService.deleteListId(id);
     }
   }
   newTask(ev) {

@@ -92,7 +92,8 @@ export class DataManagerService {
     return this.data;
   }
 
-  addNewList(nameMod: string) {
+  addNewList(name: string) {
+    // para añadirla en local
    /*  const id = new Date();
     const newList: List = {
       listId: Date.now(),
@@ -109,11 +110,18 @@ export class DataManagerService {
     });
   }
 
-  deleteList(listId: number) {
-    this.data.lists = this.data.lists.filter(list => list.listId !== listId);
+  deleteListId(listId: number) {
+    // para borrar de forma local
+    // this.data.lists = this.data.lists.filter(list => list.listId !== listId);
+
+    // con la API
+    this.api.deleteList(listId).then(resolve => {
+      console.log(resolve);
+      this.loadDataFromBackend();
+    });
   }
 
-  addNewTask(text: string, list: List) {
+  addNewTask(text: string, list: List) {/*
     const now = new Date();
     const newTask: Task = {
       listTaskId: list.listId,
@@ -132,8 +140,16 @@ export class DataManagerService {
       }
       return listObj;
     });
-    console.log('funcion añadir tarea fin');
+    console.log('funcion añadir tarea fin'); */
+
+    // con la API
+    this.api.newTask(text, list.listId).then(resolve => {
+      console.log(text, list.listId, 'inicio newTask data-manager');
+      this.loadDataFromBackend();
+      console.log('tarea añadida dataManager');
+    });
   }
+
   deleteTask(listId: number, taskId: number) {
     this.data.lists = this.data.lists.map(list => {
       if (list.listId === listId) {
@@ -144,6 +160,7 @@ export class DataManagerService {
   }
 
   editListNameService(list: List) {
+    // de forma local
     this.data.lists = this.data.lists.map(listObj => (listObj.listId === list.listId) ? list : listObj);
   }
 

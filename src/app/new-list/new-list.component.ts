@@ -15,10 +15,12 @@ export class NewListComponent {
     private router: Router) { }
 
   addList(ev) {
+    console.log(ev, 'addList init');
     if (ev.target.value.trim() !== '') {
       this.dataService.addNewList(ev.target.value);
     ev.target.value = '';
     }
+    console.log(ev, 'addList fin');
   }
   logout() {
     console.log('logout init');
