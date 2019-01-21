@@ -9,13 +9,13 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  register(user, pass) {
-    return this.http.post('https://apitrello.herokuapp.com/users', { user, pass }).toPromise();
+  register(username, password) {
+    return this.http.post('https://apitrello.herokuapp.com/users', { username, password }).toPromise();
   }
 
-  login(user, pass) {
+  login(username, password) {
     console.log('inicio login api');
-    const body = { user, pass };
+    const body = { username, password };
     return new Promise((resolve, reject) => {
       this.http.post(`https://apitrello.herokuapp.com/users/login`, body)
         .toPromise().then(() => {
@@ -36,4 +36,5 @@ export class ApiService {
         });
     });
   }
+  logout() {}
 }

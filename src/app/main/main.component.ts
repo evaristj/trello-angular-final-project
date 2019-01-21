@@ -11,6 +11,8 @@ export class MainComponent implements OnInit {
   data: {lists: Array<List> };
   constructor(private dataManager: DataManagerService) { }
 
+  logout() {}
+
   ngOnInit() {
     this.data = this.dataManager.getData();
   }

@@ -20,9 +20,11 @@ export class RegisterViewComponent {
       this.api
         .register(username.trim(), password.trim())
         .then(res => {
+          console.log(res);
           this.valid = res;
         })
         .catch(error => {
+          console.log(error);
           this.error = error;
         });
     }

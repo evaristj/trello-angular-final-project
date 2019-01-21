@@ -18,13 +18,12 @@ export class LoginViewComponent {
     console.log('usuario:' + this.username + ', pass: ' + this.password);
     const { username, password} = this;
     this.api.login(username.trim(), password.trim())
-    .then(() => {
-      console.log('entra en then de login');
+    .then((response) => {
+      console.log(response, 'entra en then de login');
       this.error = undefined;
-      // this.router.navigate(['/main']);
-    }).catch(error => {
-      console.log('entra en catch de login');
       this.router.navigate(['/main']);
+    }).catch(error => {
+      console.log(error, 'entra en catch de login');
       this.error = error;
     });
   }
