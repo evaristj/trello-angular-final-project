@@ -12,7 +12,7 @@ export interface Task {
     taskId: number;
     text: string;
     description: string;
-    completed: false;
+    completed: boolean;
     color: string;
     createdAt: Date;
     modifiedAt: Date;

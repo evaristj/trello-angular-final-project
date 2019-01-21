@@ -41,4 +41,36 @@ export class ApiService {
     localStorage.clear();
     console.log('logoutSession fin');
   }
+  getLists(): any {
+    const options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+    return this.http.get('https://apitrello.herokuapp.com/list', options).toPromise();
+  }
+  getTasks(idlist: number): any {
+    const options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+    return new Promise((resolve, reject) => {
+      this.http
+        .get('https://apitrello.herokuapp.com/list/tasks/' + idlist, options)
+        .toPromise()
+        .then(tasks => {
+          if (tasks) {
+            resolve(tasks);
+          } else {
+            resolve([]);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          resolve([]);
+        });
+    });
+  }
+  newList(name: string): any {
+    const options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+    const body = { name };
+    return this.http.post('https://apitrello.herokuapp.com/list/', body, options).toPromise();
+  }
+  deleteList(id: number): any {
+    const options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+    return this.http.delete('https://apitrello.herokuapp.com/list/' + id, options).toPromise();
+  }
 }

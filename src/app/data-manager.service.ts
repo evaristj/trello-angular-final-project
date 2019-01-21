@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { List, Task } from './models.interface';
+import { ApiService } from './api.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -8,7 +10,7 @@ import { List, Task } from './models.interface';
 
 export class DataManagerService {
   data: { lists: Array<List> } = {
-    lists: [
+    lists: [/*
       {
         listId: 1,
         createdAt: new Date(),
@@ -25,28 +27,17 @@ export class DataManagerService {
             createdAt: new Date(),
             modifiedAt: new Date()
           },
-          {
-            taskId: 1,
-            listTaskId: 1,
-            text: 'aprender angular 2',
-            // tslint:disable-next-line:max-line-length
-            description: 'estoy, lorem ipsum cagate en todo estaij sskkjs dllkkgds',
-            completed: false,
-            color: 'red',
-            createdAt: new Date(),
-            modifiedAt: new Date()
-          }
         ]
       },
       {
-        listId: 3,
+        listId: 2,
         createdAt: new Date(),
         modifiedAt: new Date(),
         name: 'WAITING',
         tasks: [
           {
             taskId: 0,
-            listTaskId: 3,
+            listTaskId: 2,
             text: 'angular esperando',
             description: 'estoy esperando una modificación.',
             completed: false,
@@ -55,35 +46,54 @@ export class DataManagerService {
             modifiedAt: new Date()
           }
         ]
-      },
-      {
-        listId: 4,
-        createdAt: new Date(),
-        modifiedAt: new Date(),
-        name: 'DO IT',
-        tasks: [
-          {
-            taskId: 0,
-            listTaskId: 4,
-            text: 'angular hecho',
-            description: 'acabo de terminar la tarea.',
-            completed: false,
-            color: 'red',
-            createdAt: new Date(),
-            modifiedAt: new Date()
-          }
-        ]
-      }
+      } */
     ]
   };
 
-  constructor() { }
+  constructor(private api: ApiService, private router: Router) { }
+
+  loadDataFromBackend() {
+    this.api
+      .getLists()
+      .then((rawLists: Array<any>) => {
+        console.log(rawLists);
+        const lists = rawLists.map(rawList => ({
+          listId: rawList.id,
+          createdAt: rawList.createdAt,
+          modifiedAt: rawList.updatedAt,
+          name: rawList.name,
+          tasks: [],
+        }));
+        Promise.all(
+          lists.map(async (list: List) => {
+            list.tasks = await this.api.getTasks(list.listId);
+            list.tasks = list.tasks.map((rawTask: any) => ({
+              listTaskId: rawTask.idlist,
+              taskId: rawTask.id,
+              text: rawTask.task,
+              description: 'añade una descripción...',
+              completed: false,
+              color: 'white',
+              createdAt: new Date(rawTask.createdAt),
+              modifiedAt: new Date(rawTask.updatedAt),
+            }));
+            return list;
+          }),
+        // tslint:disable-next-line:no-shadowed-variable
+        ).then(lists => {
+          this.data.lists = lists;
+        });
+      })
+      .catch(() => this.router.navigate(['/login']));
+  }
 
   getData() {
+    this.loadDataFromBackend();
     return this.data;
   }
+
   addNewList(nameMod: string) {
-    const id = new Date();
+   /*  const id = new Date();
     const newList: List = {
       listId: Date.now(),
       createdAt: id,
@@ -91,7 +101,12 @@ export class DataManagerService {
       name: nameMod,
       tasks: []
     };
-    this.data.lists.push(newList);
+    this.data.lists.push(newList); */
+
+    this.api.newList(name).then(res => {
+      console.log(res);
+      this.loadDataFromBackend();
+    });
   }
 
   deleteList(listId: number) {
