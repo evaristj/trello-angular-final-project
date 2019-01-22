@@ -15,6 +15,7 @@ import { LoginViewComponent } from './login-view/login-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,14 @@ import { HttpClientModule } from '@angular/common/http';
     TaskComponent,
     RegisterViewComponent,
     LoginViewComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ColorPickerModule
   ],
   providers: [
     DataManagerService,

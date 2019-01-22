@@ -25,8 +25,7 @@ export class NewListComponent {
   logout() {
     console.log('logout init');
     this.api.logoutSession();
-    console.log('logout fin');
-    console.log(this.api.jwt);
+    console.log(this.api.jwt, 'token de sesión borrado.');
     this.router.navigate(['/login']);
   }
 

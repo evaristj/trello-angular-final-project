@@ -6,6 +6,11 @@
 }
 .title {
     text-align: center;
+    transition: 500ms;
+}
+h3:hover {
+    border-radius: 0.5em;
+    background-color: rgb(159, 253, 97);
 }
 h5 {
     opacity: 0.6;
@@ -18,17 +23,20 @@ h5 {
 }
 img {
     opacity: 0.4;
-    transition: opacity 500ms;
+    transition: 500ms;
     max-width: 30px;
 }
 img:hover {
-    background-color: rgb(255, 52, 52);
-    opacity: 1.5;
-    border-radius: 0.4em;
+    background-color: rgb(159, 253, 97);
+    opacity: 1;
+    border-radius: 0.3em;
+    max-width: 35px;
 }
 .addTask {
     margin: 10px;
+    transition: 500ms;
 }
 .addTask:hover {
-    border: 1px solid black;
+    border-radius: 1em;
+    background-color: rgb(159, 253, 97);
 }

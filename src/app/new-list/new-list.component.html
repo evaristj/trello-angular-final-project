@@ -1,6 +1,6 @@
 <header>
-  <input type="text" placeholder="add list" (keyup.enter)="addList($event)">
+  <input type="text" placeholder="add list..." (keyup.enter)="addList($event)">
+  <div class="logout">
+    <button type="submit" value="logout" (click)="logout()" placeholder="logout">logout</button>
+  </div>
 </header>
-<div class="logout">
-  <button type="submit" value="logout" (click)="logout()" placeholder="logout">logout</button>
-</div>

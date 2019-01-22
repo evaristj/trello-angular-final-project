@@ -6,11 +6,17 @@ form {
     padding: 1em;
     flex-flow: column nowrap;
     align-items: center;
+    border-radius: 0.5em;
+}
+input {
+    border-radius: 0.5em;
 }
 .send {
+    border: none;
+    border-radius: 1em;
     margin: 3px;
-    background-color: rgb(70, 255, 70);
+    background-image: linear-gradient(to left, rgb(78, 255, 78), rgb(15, 188, 211));
 }
 .send:hover {
-    background-color: rgb(19, 194, 19);
+    background-image: linear-gradient(to right, rgb(78, 255, 78), rgb(15, 188, 211));
 }

@@ -7,16 +7,34 @@
     padding: 0.3em;
     margin: 0.3em;
 }
+.card-body h5, .description {
+    transition: 500ms;
+}
+.card-body h5:hover, .description:hover {
+    border-radius: 1em;
+    background: rgb(224, 224, 224);
+}
 img {
     opacity: 0.4;
-    transition: opacity 500ms;
-    max-width: 30px;
+    transition: 500ms;
+    max-width: 26px;
 }
 img:hover {
-    background-color: rgb(255, 52, 52);
-    opacity: 1.5;
+    background-color: rgb(224, 224, 224);
+    opacity: 1;
     border-radius: 0.4em;
+    max-width: 31px;
 }
 h6 {
     opacity: 0.6;
+}
+.colorTask {
+    opacity: 0.7;
+    border-radius: 1em;
+    background: rgb(202, 255, 247);
+    text-align: center;
+}
+.colorTask:hover {
+    border-radius: 1em;
+    background-color: rgb(155, 247, 233);
 }

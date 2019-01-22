@@ -93,17 +93,6 @@ export class DataManagerService {
   }
 
   addNewList(name: string) {
-    // para añadirla en local
-   /*  const id = new Date();
-    const newList: List = {
-      listId: Date.now(),
-      createdAt: id,
-      modifiedAt: id,
-      name: nameMod,
-      tasks: []
-    };
-    this.data.lists.push(newList); */
-
     this.api.newList(name).then(res => {
       console.log(res);
       this.loadDataFromBackend();
@@ -111,38 +100,13 @@ export class DataManagerService {
   }
 
   deleteListId(listId: number) {
-    // para borrar de forma local
-    // this.data.lists = this.data.lists.filter(list => list.listId !== listId);
-
-    // con la API
     this.api.deleteList(listId).then(resolve => {
       console.log(resolve);
       this.loadDataFromBackend();
     });
   }
 
-  addNewTask(text: string, list: List) {/*
-    const now = new Date();
-    const newTask: Task = {
-      listTaskId: list.listId,
-      taskId: Date.now(),
-      text,
-      description: 'Añade una descripción...',
-      completed: false,
-      color: 'white',
-      createdAt: now,
-      modifiedAt: now,
-    };
-    console.log('funcion añadir tarea init');
-    this.data.lists = this.data.lists.map(listObj => {
-      if (listObj.listId === list.listId) {
-        listObj.tasks.push(newTask);
-      }
-      return listObj;
-    });
-    console.log('funcion añadir tarea fin'); */
-
-    // con la API
+  addNewTask(text: string, list: List) {
     this.api.newTask(text, list.listId).then(resolve => {
       console.log(resolve, 'inicio newTask data-manager');
       this.loadDataFromBackend();
@@ -150,17 +114,6 @@ export class DataManagerService {
     });
   }
 
-  // de forma local
-  /*   deleteTask(listId: number, taskId: number) {
-    this.data.lists = this.data.lists.map(list => {
-      if (list.listId === listId) {
-        list.tasks = list.tasks.filter(task => task.taskId !== taskId);
-      }
-      return list;
-    });
-  } */
-
-  // con la API
   deleteTask(listId: number) {
     this.api.deleteTask(listId).then(resolve => {
       console.log(resolve, 'inicio delete dataManager');
@@ -168,10 +121,6 @@ export class DataManagerService {
   }
 
   updateListService(list: List) {
-    // de forma local
-    // this.data.lists = this.data.lists.map(listObj => (listObj.listId === list.listId) ? list : listObj);
-
-    // API
     this.api.updateList(list.name, list.listId).then(resolve => {
       console.log(resolve);
       this.loadDataFromBackend();

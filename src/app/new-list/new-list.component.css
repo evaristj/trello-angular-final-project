@@ -1,22 +1,33 @@
 header {
-    height: 100px;
+    height: 90px;
     background-image: linear-gradient(to left, rgb(78, 255, 78), rgb(15, 188, 211));
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 input {
     all: unset;
     background: transparent;
     color: white;
+    border-radius: 1em;
     border: 1px solid black;
-    
+    transition: 600ms;
+}
+input:hover {
+    padding: 5px;
 }
 input::placeholder {
+    text-align: center;
     color: whitesmoke;
 }
 /*css de logout*/
-.logout {
+.logout, button {
+    border: none;
+    border-radius: 1em;
+    transition: 600ms;
     text-align: right;
-    background:  rgb(231, 231, 231);
+    background-image: linear-gradient(to right, rgb(78, 255, 78), rgb(15, 188, 211));
+}
+.logout, button:hover {
+    background-image: linear-gradient(to left, rgb(78, 255, 78), rgb(15, 188, 211));    
 }
