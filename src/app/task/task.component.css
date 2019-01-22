@@ -28,7 +28,7 @@ img:hover {
 h6 {
     opacity: 0.6;
 }
-.colorTask {
+/* .colorTask {
     opacity: 0.7;
     border-radius: 1em;
     background: rgb(202, 255, 247);
@@ -37,4 +37,4 @@ h6 {
 .colorTask:hover {
     border-radius: 1em;
     background-color: rgb(155, 247, 233);
-}
+} */
