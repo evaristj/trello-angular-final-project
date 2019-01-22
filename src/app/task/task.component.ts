@@ -13,7 +13,6 @@ export class TaskComponent {
   newName = '';
   editDesBool = false;
   editNameBool = false;
-  textDeleteTask: 'Si pulsas acceptar se borrarán todas las tareas, ¿seguro que quieres borrar TODAS las tareas?';
   constructor(private dataService: DataManagerService) { }
 
   editTaskDescription() {
@@ -29,7 +28,7 @@ export class TaskComponent {
   }
 
   deleteTask() {
-    if (confirm('Si pulsas acceptar se borrarán todas las tareas,')) {
+    if (confirm('Si pulsas acceptar se borrarán TODAS las tareas,')) {
       this.dataService.deleteTask(this.task.listTaskId);
     }
   }

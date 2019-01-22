@@ -169,7 +169,13 @@ export class DataManagerService {
 
   editListNameService(list: List) {
     // de forma local
-    this.data.lists = this.data.lists.map(listObj => (listObj.listId === list.listId) ? list : listObj);
+    // this.data.lists = this.data.lists.map(listObj => (listObj.listId === list.listId) ? list : listObj);
+
+    // API
+    this.api.updateList(list.name, list.listId).then(resolve => {
+      console.log(resolve);
+      this.loadDataFromBackend();
+    }).catch(() => console.log('update list error dataManager'));
   }
 
   // este método recibe el objeto task por parámetro y lo devuelve, por lo que se puede reutilizar
