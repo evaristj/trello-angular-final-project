@@ -31,7 +31,7 @@ export class ListComponent {
   editListName() {
     // al ejecutar intro aunque pierda el foco con blur, se acutaliza con el nombre pulsado
     this.list.name = this.newName;
-    this.dataService.editListNameService(this.list);
+    this.dataService.updateListService(this.list);
     this.editing = false;
   }
   editName(nodo) {

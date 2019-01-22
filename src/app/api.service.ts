@@ -12,6 +12,7 @@ export class ApiService {
   urlList = 'https://apitrello.herokuapp.com/list/';
   urlListTasks = 'https://apitrello.herokuapp.com/list/tasks/';
   urlTasks = 'https://apitrello.herokuapp.com/tasks';
+  urlPutTasks = 'https://apitrello.herokuapp.com/tasks/';
   options = { headers: { Authorization: `Bearer ${this.jwt}` } };
 
   constructor(private http: HttpClient) { }
@@ -86,6 +87,10 @@ export class ApiService {
     const body = { task, idlist };
     console.log(task, idlist, 'fin newTask API');
     return this.http.post(this.urlTasks, body, this.options).toPromise();
+  }
+  updateTask(task: string, idTask: number) {
+    const body = { task };
+    return this.http.put(this.urlPutTasks + idTask, body, this.options).toPromise();
   }
   deleteTask(listId: number): any {
     return this.http.delete(this.urlListTasks + listId, this.options).toPromise();

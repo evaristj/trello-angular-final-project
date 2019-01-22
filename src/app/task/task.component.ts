@@ -33,15 +33,19 @@ export class TaskComponent {
     }
   }
 
-  editTaskName() {
+/* editTaskName() {
     this.task.text = this.newName;
     this.dataService.updateTask(this.task);
     this.editNameBool = false;
-  }
+  } */
   editName() {
     this.editNameBool = true;
   }
   cancelNameTask() {
     this.editNameBool = false;
+  }
+  updateTaskApi() {
+    this.task.text = this.newName;
+    this.dataService.putTask(this.task);
   }
 }

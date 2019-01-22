@@ -167,7 +167,7 @@ export class DataManagerService {
     }).catch(() => this.loadDataFromBackend());
   }
 
-  editListNameService(list: List) {
+  updateListService(list: List) {
     // de forma local
     // this.data.lists = this.data.lists.map(listObj => (listObj.listId === list.listId) ? list : listObj);
 
@@ -179,9 +179,9 @@ export class DataManagerService {
   }
 
   // este método recibe el objeto task por parámetro y lo devuelve, por lo que se puede reutilizar
-  // para actualizar el objeto Task
+  // para actualizar el objeto Task en local
   updateTask(objTask: Task) {
-    console.log('funcion update tarea init');
+    console.log('updatetarea init localStorage, dataManager.');
     this.data.lists = this.data.lists.map(list => {
       if (list.listId === objTask.listTaskId) {
         list.tasks = list.tasks.map(task => {
@@ -192,6 +192,13 @@ export class DataManagerService {
         });
       }
       return list;
+    });
+  }
+  putTask(task: Task) {
+    this.api.updateTask(task.text, task.taskId).then(resolve => {
+      this.loadDataFromBackend();
+    }).catch(() => {
+      console.log('error in putTask dataManager.');
     });
   }
 }

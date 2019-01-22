@@ -4,7 +4,7 @@
       <h5 *ngIf="!editNameBool" class="card-title" (dblclick)="editName()">{{ task.text }}</h5>
       <input type="text" *ngIf="editNameBool" 
       [(ngModel)]="newName"
-      (keyup.enter)="editTaskName($event)"
+      (keyup.enter)="updateTaskApi()"
       (blur)="cancelNameTask()">
 
       <h6 class="card-subtitle mb-2 text-muted">Id: {{ task.taskId }}</h6>
