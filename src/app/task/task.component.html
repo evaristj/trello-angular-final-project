@@ -15,8 +15,8 @@
         (keyup.enter)="editTaskDescription($event)" 
         (blur)="cancelEditDescription()"></textarea>
       <hr>
-      <div class="colorTask" [(colorPicker)]="color" [style.background]="color">
-        <p>Elegir color</p>
+      <div class="colorTask" [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="updateTaskColor(color)">
+        <p>{{ task.color }}</p>
       </div>
       <div class="icons">
         <img src="assets/images/borrar.png" alt="Borrar tarea" (click)="deleteTask()">

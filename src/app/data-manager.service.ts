@@ -130,7 +130,7 @@ export class DataManagerService {
   // este método recibe el objeto task por parámetro y lo devuelve, por lo que se puede reutilizar
   // para actualizar el objeto Task en local
   updateTask(objTask: Task) {
-    console.log('updatetarea init localStorage, dataManager.');
+    console.log('updatetarea init, dataManager.');
     this.data.lists = this.data.lists.map(list => {
       if (list.listId === objTask.listTaskId) {
         list.tasks = list.tasks.map(task => {

@@ -48,4 +48,9 @@ export class TaskComponent {
     this.task.text = this.newName;
     this.dataService.putTask(this.task);
   }
+  updateTaskColor(chooseColor: string) {
+    this.task.color = chooseColor;
+    this.dataService.updateTask(this.task);
+    console.log(this.task.color, chooseColor);
+  }
 }
