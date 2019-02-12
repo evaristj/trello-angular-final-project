@@ -1,6 +1,8 @@
 # TrelloAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+¡Nunca olvidarás nada más!
+A continuación puedes ver una aplicación para gestionar listas que contienen tareas. Agrega listas, agrega tareas a la lista, edita, elimina, etc. 
+Apunta todo lo que tienes que hacer para que no se te olvide nunca nada.
 
 ## Development server
 
